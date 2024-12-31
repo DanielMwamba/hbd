@@ -1,24 +1,36 @@
-import { motion } from 'framer-motion'
-import { Play, Pause} from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog"
+import { motion } from "framer-motion";
+import { Play, Pause } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
 
 interface AudioPlayerProps {
-  isPlaying: boolean
-  onPlayPause: () => void
-  showMusicPrompt: boolean
-  setShowMusicPrompt: (show: boolean) => void
+  isPlaying: boolean;
+  onPlayPause: () => void;
+  showMusicPrompt: boolean;
+  setShowMusicPrompt: (show: boolean) => void;
 }
 
-export default function AudioPlayer({ isPlaying, onPlayPause, showMusicPrompt, setShowMusicPrompt }: AudioPlayerProps) {
+export default function AudioPlayer({
+  isPlaying,
+  onPlayPause,
+  showMusicPrompt,
+  setShowMusicPrompt,
+}: AudioPlayerProps) {
   const handlePlay = () => {
-    onPlayPause()
-    setShowMusicPrompt(false)
-  }
+    onPlayPause();
+    setShowMusicPrompt(false);
+  };
 
   return (
     <>
-      <motion.div 
+      <motion.div
         className="fixed bottom-4 right-4"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -29,7 +41,11 @@ export default function AudioPlayer({ isPlaying, onPlayPause, showMusicPrompt, s
           size="icon"
           className="rounded-full shadow-lg bg-white text-primary hover:bg-primary hover:text-white"
         >
-          {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
+          {isPlaying ? (
+            <Pause className="h-6 w-6" />
+          ) : (
+            <Play className="h-6 w-6" />
+          )}
         </Button>
       </motion.div>
       <Dialog open={showMusicPrompt} onOpenChange={setShowMusicPrompt}>
@@ -41,12 +57,13 @@ export default function AudioPlayer({ isPlaying, onPlayPause, showMusicPrompt, s
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button onClick={() => setShowMusicPrompt(false)} variant="outline">Non merci</Button>
+            <Button onClick={() => setShowMusicPrompt(false)} variant="outline">
+              Non merci
+            </Button>
             <Button onClick={handlePlay}>Oui, jouez la musique !</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
     </>
-  )
+  );
 }
-

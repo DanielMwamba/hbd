@@ -1,34 +1,23 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import './globals.css'
+import { playfair } from './fonts'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Happy Birthday Ange",
-  description: "Joyeux anniversaire Ange Maguimwe !",
-};
+export const metadata = {
+  title: 'Joyeux Anniversaire Ange !',
+  description: 'Une célébration spéciale pour une amie extraordinaire',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="fr">
+      <head>
+        <link rel="icon" href="/favicon.png" sizes="any" />
+      </head>
+      <body className={playfair.className}>{children}</body>
     </html>
-  );
+  )
 }
+

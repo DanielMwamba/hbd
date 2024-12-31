@@ -8,6 +8,7 @@ import AudioPlayer from './components/AudioPlayer'
 import BirthdayCake from './components/BirthdayCake'
 import Balloons from './components/Ballons'
 import { Card, CardContent } from "@/components/ui/card"
+import GenerateFavicon from './components/GenerateFavicon'
 
 const photos = [
   { src: '/a.jpg', width: 600, height: 400 },
@@ -45,6 +46,7 @@ export default function Home() {
       transition={{ duration: 2 }}
       className="min-h-screen bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400 overflow-hidden"
     >
+      <GenerateFavicon/>
       <Balloons />
       <main className="container mx-auto px-4 py-8 relative flex flex-col items-center justify-center min-h-screen">
         <BirthdayCake />
