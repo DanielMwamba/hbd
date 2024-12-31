@@ -13,7 +13,7 @@ export default function BirthdayMessage() {
         animate={{ scale: [1, 1.1, 1] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
-        Joyeux Anniversaire, Marie !
+        Joyeux Anniversaire, Ange Maguimwe !
       </motion.h1>
       <motion.p 
         className="text-xl text-muted-foreground"
